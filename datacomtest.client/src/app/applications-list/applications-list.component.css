@@ -1,0 +1,133 @@
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  background: #f7f9fa;
+  padding: 2em 0;
+}
+
+.app-block {
+  width: 900px;
+  min-width: 900px;
+  max-width: 900px;
+  margin: 1.5em auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-sizing: border-box;
+}
+
+.app-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  padding: 1em 2em;
+  box-sizing: border-box;
+}
+
+  .app-form input,
+  .app-form select {
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 0.5em;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+  .app-form button[type="submit"],
+  .app-form button[type="button"] {
+    flex: 0 0 auto;
+    min-width: 90px;
+    padding: 0.5em 1.2em;
+    border-radius: 4px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .app-form button[type="submit"] {
+    background: #1976d2;
+    color: #fff;
+  }
+
+    .app-form button[type="submit"]:hover {
+      background: #125ea2;
+    }
+
+  .app-form button[type="button"] {
+    background: #e0e0e0;
+    color: #333;
+    margin-left: 0.5em;
+  }
+
+    .app-form button[type="button"]:hover {
+      background: #bdbdbd;
+    }
+
+.error-message {
+  color: #b00020;
+  background: #ffeaea;
+  border: 1px solid #b00020;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+button {
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+th, td {
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+th {
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: #f3f6fa;
+}
+
+tr:hover {
+  background: #e3eafc;
+}
+
+.pagination {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+  .pagination button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+    .pagination button:disabled {
+      background: #bdbdbd;
+      cursor: not-allowed;
+    }

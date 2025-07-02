@@ -1,0 +1,64 @@
+<h1 id="tableLabel">Job Application List</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<div class="center-container">
+  <div *ngIf="loading">Loading applications...</div>
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <button (click)="openAddForm()">Add Application</button>
+
+  <div class="app-block">
+    <!-- Add/Edit Form -->
+    <form *ngIf="showForm" (ngSubmit)="onSubmit()" class="app-form app-block">
+      <input [(ngModel)]="formModel.companyName" name="companyName" placeholder="Company Name" required />
+      <input [(ngModel)]="formModel.position" name="position" placeholder="Position" required />
+      <input [(ngModel)]="formModel.dateApplied" name="dateApplied" type="date" required />
+      <select [(ngModel)]="formModel.status" name="status" required>
+        <option [value]="0">Applied</option>
+        <option [value]="1">Interview</option>
+        <option [value]="2">Offer</option>
+        <option [value]="3">Rejected</option>
+      </select>
+      <button type="submit">{{ formModel.id ? 'Update' : 'Add' }}</button>
+      <button type="button" (click)="closeForm()">Cancel</button>
+    </form>
+
+    <!-- Applications Table -->
+    <table *ngIf="!loading" class="app-block">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Position</th>
+          <th>Status</th>
+          <th>Date Applied</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let app of pagedApplications()">
+          <td>{{ app.companyName }}</td>
+          <td>{{ app.position }}</td>
+          <td>
+            <select [(ngModel)]="app.status" (change)="updateStatus(app)">
+              <option [value]="0">Applied</option>
+              <option [value]="1">Interview</option>
+              <option [value]="2">Offer</option>
+              <option [value]="3">Rejected</option>
+            </select>
+          </td>
+          <td>{{ app.dateApplied | date }}</td>
+          <td>
+            <button (click)="editApplication(app)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div *ngIf="totalPages > 1" class="pagination">
+    <button (click)="prevPage()" [disabled]="pageNumber === 1">Prev</button>
+    <span>Page {{ pageNumber }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="pageNumber === totalPages">Next</button>
+  </div>
+</div>
