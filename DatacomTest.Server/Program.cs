@@ -23,7 +23,7 @@ public class Program
             });
         });
 
-        // Add services to the container.
+        // Add logging services to the container.
         _ = builder.Services.AddLogging(loggingBuilder =>
         {
             _ = loggingBuilder.AddConsole();
