@@ -17,6 +17,7 @@ export interface Application {
   providedIn: 'root'
 })
 export class ApplicationService {
+  //Direct API URL used here. It is only for easy test setup purposes.
   //Use relative API URL in Production with uncommenting the line below and set port in environment settings.
   //private apiUrl = '/api/Application';
   private apiUrl = 'https://localhost:7069/api/Application';
